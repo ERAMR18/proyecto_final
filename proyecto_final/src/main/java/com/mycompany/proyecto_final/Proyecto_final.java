@@ -6,26 +6,29 @@ package com.mycompany.proyecto_final;
 
 import Metodos.MetodosAula;
 import Metodos.MetodosCurso;
+
 import java.util.Scanner;
+
 import clases.Persona;
+
 import java.io.*;
+
 import Metodos.MetodosPersona;
 import clases.Aula;
 import clases.Curso;
 
 /**
- *
  * @author ramir
  */
 public class Proyecto_final {
-    
+
     public static void main(String[] args) {
- 
-   int opcion = 0;
-   int salida = 0;
-   
-   while(salida != 1){
-            Scanner entrada = new Scanner(System.in);
+
+        int opcion = 0;
+        int salida = 0;
+        Scanner entrada = new Scanner(System.in);
+
+        do {
             System.out.println("Menu Proyecto 1 programacion 2024 Grupo #");
             System.out.println("\t 1. Ingresar alumno");
             System.out.println("\t 2. Buscar alumno por CUI");
@@ -33,36 +36,36 @@ public class Proyecto_final {
             System.out.println("\t 4. Ingresar curso");
             System.out.println("\t 5. Buscar curso por codigo de curso");
             System.out.println("\t 6. Desplegar lilstado de cursos registrados");
-            System.out.println("\t 11. Salir"); 
-            
-            try{ 
-               //opcion = entrada.nextInt();
+            System.out.println("\t 11. Salir");
+
+            try {
+                //opcion = entrada.nextInt();
+                //entrada.nextLine();
                 opcion = Integer.parseInt(entrada.next());
                 System.out.println("Nmero introducido: " + opcion);
-                entrada.nextLine();
-            
-               
-            } catch(Exception e){
+
+
+            } catch (Exception e) {
                 System.out.println("Error:" + e);
             }
-            switch(opcion){
-             case 1: 
+            switch (opcion) {
+                case 1:
                     System.out.println("Problema 1");
                     registrarPersona();
                     break;
-                    
-            case 2: 
+
+                case 2:
                     Scanner entrada2 = new Scanner(System.in);
                     System.out.println("Ingrese el CUI: ");
                     String cui = entrada2.nextLine();
                     Persona person = MetodosPersona.buscarPersonaPorCUI(cui);
-                    if (person!=null ) {
-                     person.showPerson();
-                     break;
-                }                   
+                    if (person != null) {
+                        person.showPerson();
+                        break;
+                    }
                     break;
-                    
-            case 3:
+
+                case 3:
                     Scanner entrada3 = new Scanner(System.in);
                     System.out.println("Ingrese el CUI a modificar: ");
                     String cuiMod = entrada3.nextLine();
@@ -70,150 +73,156 @@ public class Proyecto_final {
                     String nombre = null;
                     String apellido = null;
                     String numeroTelefono = null;
-                    
-                    if (personMod!=null ) {
+
+                    if (personMod != null) {
                         System.out.println("Persona a modificar");
                         personMod.showPerson();
-                        
+
                         System.out.println("¿Desea modificar nombres? 1. SI 2. NO");
-                            int n = entrada3.nextInt(); 
-                            entrada3.nextLine();
-                            if (n == 1) {
+                        int n = entrada3.nextInt();
+                        entrada3.nextLine();
+                        if (n == 1) {
                             System.out.println("Ingrese el nombre a modificar: ");
                             nombre = entrada3.nextLine();
-                            }
+                        }
 
-                            System.out.println("¿Desea modificar apellidos? 1. SI 2. NO");
-                            int n2 = entrada3.nextInt();
-                            entrada3.nextLine();
-                            if (n2 == 1) {
-                                System.out.println("Ingrese los apellidos a modificar: ");
-                                apellido = entrada3.nextLine();
-                            }
+                        System.out.println("¿Desea modificar apellidos? 1. SI 2. NO");
+                        int n2 = entrada3.nextInt();
+                        entrada3.nextLine();
+                        if (n2 == 1) {
+                            System.out.println("Ingrese los apellidos a modificar: ");
+                            apellido = entrada3.nextLine();
+                        }
 
-                            System.out.println("¿Desea modificar el numero de telefono? 1. SI 2. NO");
-                            int n3 = entrada3.nextInt();
-                            entrada3.nextLine();
-                            if (n3 == 1) {
-                                System.out.println("Ingrese el numero de telefono a modificar: ");
+                        System.out.println("¿Desea modificar el numero de telefono? 1. SI 2. NO");
+                        int n3 = entrada3.nextInt();
+                        entrada3.nextLine();
+                        if (n3 == 1) {
+                            System.out.println("Ingrese el numero de telefono a modificar: ");
+                            numeroTelefono = entrada3.nextLine();
+
+                            while (!MetodosPersona.validarNumeroCelular(numeroTelefono)) {
+                                System.out.println("Numero de celular invalido solo se permiten digitos");
+                                System.out.println("Ingrese nuevamente el numero de celular: ");
                                 numeroTelefono = entrada3.nextLine();
-
-                                while(!MetodosPersona.validarNumeroCelular(numeroTelefono)){
-                                    System.out.println("Numero de celular invalido solo se permiten digitos");
-                                    System.out.println("Ingrese nuevamente el numero de celular: ");
-                                    numeroTelefono = entrada3.nextLine();
-                                }
                             }
+                        }
 
-                            System.out.println("Datos: ");
-                            System.out.println(nombre);
-                            System.out.println(apellido);
-                            System.out.println(numeroTelefono);
+                        System.out.println("Datos: ");
+                        System.out.println(nombre);
+                        System.out.println(apellido);
+                        System.out.println(numeroTelefono);
 
-                            Persona personaNueva = new Persona(cuiMod, nombre, apellido, numeroTelefono);
-                            MetodosPersona.modificarPersonaPorCUI(cuiMod, personaNueva); //String CUI, Persona nuevaPersona
-                     
+                        Persona personaNueva = new Persona(cuiMod, nombre, apellido, numeroTelefono);
+                        MetodosPersona.modificarPersonaPorCUI(cuiMod, personaNueva); //String CUI, Persona nuevaPersona
+
                     } else {
                         System.out.println("Persona no encontrada");
-                    
-                    }
-                    
-         
-                    break;
-                    
-            case 4:{
-                System.out.println("Problema 2");
-                registrarCurso();
-                break;
-            }
-                
-            case 5:{
-                Scanner entradaCurso = new Scanner(System.in);
-                System.out.println("'Ingrese el codigo de curso para consulta'");
-                
-            }
 
-                    
-                
+                    }
+
+
+                    break;
+
+                case 4: {
+                    System.out.println("Problema 2");
+                    registrarCurso();
+                    break;
+                }
+
+                case 5: {
+                   Scanner entradaCurso = new Scanner(System.in);
+                   System.out.println("'Ingrese el codigo de curso para consulta'");
+                   String CODIGO = entradaCurso.nextLine();
+                    System.out.println("1");
+                    MetodosCurso.buscarCursoPorCodigo(CODIGO);
+                    System.out.println("2");
+                    entradaCurso.close();
+                    System.out.println("3");
+                    break;
+                }
+
+
                 case 11:
                     System.out.println("");
                     salida = 1;
                     break;
-                default: System.out.println("error");
-                break;
-        
-        
-            }   
-        }
+                default:
+                    System.out.println("error");
+                    break;
+
+
+            }
+        } while (salida != 1);
+        entrada.close();
     }
-    
-    public static void registrarPersona(){
+
+    public static void registrarPersona() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Ingrese el el cui: ");
-        String cui = scanner.nextLine(); 
+        String cui = scanner.nextLine();
         while (!MetodosPersona.validarCUI(cui)) {
-                        System.out.println("CUI invalido. Debe contener exactamente 13 caracteres numericos.");
-                        System.out.print("Ingrese CUI (13 dígitos): ");
-                        cui = scanner.nextLine();
-       
+            System.out.println("CUI invalido. Debe contener exactamente 13 caracteres numericos.");
+            System.out.print("Ingrese CUI (13 dígitos): ");
+            cui = scanner.nextLine();
+
         }
-        
-         Persona person = MetodosPersona.buscarPersonaPorCUI(cui);
-         if (person!= null) {
-             System.out.println("Esta persona ya fue ingresada");
-             person.showPerson();
-            
-        }else{
-         System.out.println("Ingrese el nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.println("Ingrese el apellido: "); 
-        String apellido = scanner.nextLine();
-        System.out.println("Ingrese su numero celular: ");
-        String numeroCelular = scanner.nextLine();
-        
-        while(!MetodosPersona.validarNumeroCelular(numeroCelular)){
+
+        Persona person = MetodosPersona.buscarPersonaPorCUI(cui);
+        if (person != null) {
+            System.out.println("Esta persona ya fue ingresada");
+            person.showPerson();
+
+        } else {
+            System.out.println("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese el apellido: ");
+            String apellido = scanner.nextLine();
+            System.out.println("Ingrese su numero celular: ");
+            String numeroCelular = scanner.nextLine();
+
+            while (!MetodosPersona.validarNumeroCelular(numeroCelular)) {
                 System.out.println("Numero de celular invalido solo se permiten digitos");
                 System.out.println("Ingrese nuevamente el numero de celular: ");
                 numeroCelular = scanner.nextLine();
+            }
+
+            Persona persona = new Persona(cui, nombre, apellido, numeroCelular);
+            System.out.println("Persona ingresada: ");
+            System.out.println(persona.toString());
+
+            MetodosPersona.registrarPersona(persona);
         }
-        
-        Persona  persona = new Persona(cui, nombre, apellido, numeroCelular);
-        System.out.println("Persona ingresada: ");
-        System.out.println(persona.toString());
-        
-        MetodosPersona.registrarPersona(persona);
-         }
-        
-        
-         
-       }
-    
-    
-    public static void registrarCurso(){
-        Scanner scanner =new Scanner(System.in);
+
+
+    }
+
+
+    public static void registrarCurso() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el codigo de curso");
         String codigoCurso = scanner.nextLine();
         System.out.println("Ingrese el nombre de curso");
         String nombreCurso = scanner.nextLine();
         System.out.println("Ingrese el numero de semestre");
         String semestre = scanner.nextLine();
-      
-        
-         while (!MetodosCurso.validarCodigo(codigoCurso)) {
-                        System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
-                        System.out.print("Ingrese el codigo de curso (13 dígitos): ");
-                        codigoCurso= scanner.nextLine();
-       
+
+
+        while (!MetodosCurso.validarCodigo(codigoCurso)) {
+            System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
+            System.out.print("Ingrese el codigo de curso (13 dígitos): ");
+            codigoCurso = scanner.nextLine();
+
         }
         Curso curso = new Curso(codigoCurso, nombreCurso, semestre);
-        
+
         MetodosCurso.registrarCurso(curso);
-        scanner.close();
-        
+        //scanner.close();
+
     }
-    
-    
-    public static void registrarAula(){
+
+
+    public static void registrarAula() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el numero de aula");
         String numeroAula = scanner.nextLine();
@@ -222,29 +231,14 @@ public class Proyecto_final {
         System.out.println("ingrese la capacidad de escritorios");
         String capacidadEscritorios = scanner.nextLine();
         Aula aula = new Aula();
-                
+
         aula.setCapacidadEscritorios(capacidadEscritorios);
         aula.setNumeroAula(numeroAula);
         aula.setUbicacionAula(ubicacionAula);
-        
+
         MetodosAula.registrarAula(aula);
         scanner.close();
-        }
-    
- 
- }
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
