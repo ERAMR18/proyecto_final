@@ -20,11 +20,12 @@ import clases.Curso;
 public class Proyecto_final {
     
     public static void main(String[] args) {
-   Scanner entrada = new Scanner(System.in);
+ 
    int opcion = 0;
    int salida = 0;
    
    while(salida != 1){
+            Scanner entrada = new Scanner(System.in);
             System.out.println("Menu Proyecto 1 programacion 2024 Grupo #");
             System.out.println("\t 1. Ingresar alumno");
             System.out.println("\t 2. Buscar alumno por CUI");
@@ -35,7 +36,12 @@ public class Proyecto_final {
             System.out.println("\t 11. Salir"); 
             
             try{ 
-            opcion = entrada.nextInt();
+               //opcion = entrada.nextInt();
+                opcion = Integer.parseInt(entrada.next());
+                System.out.println("Nmero introducido: " + opcion);
+                entrada.nextLine();
+            
+               
             } catch(Exception e){
                 System.out.println("Error:" + e);
             }
