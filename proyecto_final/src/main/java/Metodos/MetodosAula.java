@@ -24,7 +24,7 @@ public class MetodosAula {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_AULAS, true))) {
             bw.write(aula.toString());
             bw.newLine();
-            System.out.println("curso registrado exitosamente.");
+            System.out.println("Aula registrada exitosamente.");
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }

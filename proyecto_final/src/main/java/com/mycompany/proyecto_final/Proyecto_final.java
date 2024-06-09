@@ -4,10 +4,14 @@
 
 package com.mycompany.proyecto_final;
 
+import Metodos.MetodosAula;
+import Metodos.MetodosCurso;
 import java.util.Scanner;
 import clases.Persona;
 import java.io.*;
 import Metodos.MetodosPersona;
+import clases.Aula;
+import clases.Curso;
 
 /**
  *
@@ -35,7 +39,7 @@ public class Proyecto_final {
             switch(opcion){
              case 1: 
                     System.out.println("Problema 1");
-                    funcion_1();
+                    registrarPersona();
                     break;
                     
             case 2: 
@@ -56,7 +60,7 @@ public class Proyecto_final {
                     Persona personMod = MetodosPersona.buscarPersonaPorCUI(cuiMod);
                     String nombre = null;
                     String apellido = null;
-                    String numero_telefono = null;
+                    String numeroTelefono = null;
                     
                     if (personMod!=null ) {
                         System.out.println("Persona a modificar");
@@ -83,21 +87,21 @@ public class Proyecto_final {
                             entrada3.nextLine();
                             if (n3 == 1) {
                                 System.out.println("Ingrese el numero de telefono a modificar: ");
-                                numero_telefono = entrada3.nextLine();
+                                numeroTelefono = entrada3.nextLine();
 
-                                while(!MetodosPersona.validarNumeroCelular(numero_telefono)){
+                                while(!MetodosPersona.validarNumeroCelular(numeroTelefono)){
                                     System.out.println("Numero de celular invalido solo se permiten digitos");
                                     System.out.println("Ingrese nuevamente el numero de celular: ");
-                                    numero_telefono = entrada3.nextLine();
+                                    numeroTelefono = entrada3.nextLine();
                                 }
                             }
 
                             System.out.println("Datos: ");
                             System.out.println(nombre);
                             System.out.println(apellido);
-                            System.out.println(numero_telefono);
+                            System.out.println(numeroTelefono);
 
-                            Persona personaNueva = new Persona(cuiMod, nombre, apellido, numero_telefono);
+                            Persona personaNueva = new Persona(cuiMod, nombre, apellido, numeroTelefono);
                             MetodosPersona.modificarPersonaPorCUI(cuiMod, personaNueva); //String CUI, Persona nuevaPersona
                      
                     } else {
@@ -107,6 +111,7 @@ public class Proyecto_final {
                     
          
                     break;
+
                     
                 
                 case 11:
@@ -121,7 +126,7 @@ public class Proyecto_final {
         }
     }
     
-    public static void funcion_1(){
+    public static void registrarPersona(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Ingrese el el cui: ");
         String cui = scanner.nextLine(); 
@@ -143,15 +148,15 @@ public class Proyecto_final {
         System.out.println("Ingrese el apellido: "); 
         String apellido = scanner.nextLine();
         System.out.println("Ingrese su numero celular: ");
-        String numero_celular = scanner.nextLine();
+        String numeroCelular = scanner.nextLine();
         
-        while(!MetodosPersona.validarNumeroCelular(numero_celular)){
+        while(!MetodosPersona.validarNumeroCelular(numeroCelular)){
                 System.out.println("Numero de celular invalido solo se permiten digitos");
                 System.out.println("Ingrese nuevamente el numero de celular: ");
-                numero_celular = scanner.nextLine();
+                numeroCelular = scanner.nextLine();
         }
         
-        Persona  persona = new Persona(cui, nombre, apellido, numero_celular);
+        Persona  persona = new Persona(cui, nombre, apellido, numeroCelular);
         System.out.println("Persona ingresada: ");
         System.out.println(persona.toString());
         
@@ -159,7 +164,43 @@ public class Proyecto_final {
          }
         
         
+         
        }
+    
+    
+    public static void registrarCurso(){
+        Scanner scanner =new Scanner(System.in);
+        System.out.println("Ingrese el codigo de curso");
+        String codigoCurso = scanner.nextLine();
+        System.out.println("Ingrese el codigo de curso");
+        String nombreCurso = scanner.nextLine();
+        System.out.println("Ingrese el numero de semestre");
+        String semestre = scanner.nextLine();
+        Curso curso = new Curso(codigoCurso, nombreCurso, semestre);
+        
+        MetodosCurso.registrarCurso(curso);
+        scanner.close();
+        
+    }
+    
+    
+    public static void registrarAula(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el numero de aula");
+        String numeroAula = scanner.nextLine();
+        System.out.println("Ingrese la ubicacion del aula");
+        String ubicacionAula = scanner.nextLine();
+        System.out.println("ingrese la capacidad de escritorios");
+        String capacidadEscritorios = scanner.nextLine();
+        Aula aula = new Aula();
+                
+        aula.setCapacidadEscritorios(capacidadEscritorios);
+        aula.setNumeroAula(numeroAula);
+        aula.setUbicacionAula(ubicacionAula);
+        
+        MetodosAula.registrarAula(aula);
+        scanner.close();
+        }
     
  
  }

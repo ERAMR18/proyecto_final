@@ -13,6 +13,10 @@ public class Aula {
     private String ubicacionAula;
     private String capacidadEscritorios;
 
+    public Aula() {
+    }
+    
+
     public Aula(String numeroAula, String ubicacionAula, String capacidadEscritorios) {
         this.numeroAula = numeroAula;
         this.ubicacionAula = ubicacionAula;
