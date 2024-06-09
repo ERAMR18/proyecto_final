@@ -24,7 +24,7 @@ public class MetodosCurso {
         // Escribir los datos en el archivo
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_CURSOS, true))) {
             bw.write(curso.toString());
-            //bw.newLine();
+            bw.newLine();
             System.out.println("curso registrado exitosamente.");
             bw.close();
         } catch (IOException e) {

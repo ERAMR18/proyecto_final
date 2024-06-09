@@ -131,14 +131,15 @@ public class Proyecto_final {
                 }
 
                 case 5: {
-                   Scanner entradaCurso = new Scanner(System.in);
+                   //Scanner entradaCurso = new Scanner(System.in);
+                   
                    System.out.println("'Ingrese el codigo de curso para consulta'");
-                   String CODIGO = entradaCurso.nextLine();
-                    System.out.println("1");
+                   String CODIGO = entrada.next();
+         
                     MetodosCurso.buscarCursoPorCodigo(CODIGO);
-                    System.out.println("2");
-                    entradaCurso.close();
-                    System.out.println("3");
+                    
+                    //entradaCurso.close();
+                    
                     break;
                 }
 
