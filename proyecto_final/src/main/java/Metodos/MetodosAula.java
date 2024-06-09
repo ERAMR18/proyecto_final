@@ -4,17 +4,16 @@
  */
 package Metodos;
 import java.io.*;
-import clases.Curso;
-
+import clases.Aula;
 /**
  *
  * @author ramir
  */
-public class Metodos_Curso {
+public class MetodosAula {
     private static final String DIRECTORY_NAME = "registros";
-    private static final String FILE_CURSOS = DIRECTORY_NAME + "/Cursos.txt";
+    private static final String FILE_AULAS= DIRECTORY_NAME + "/Aulas.txt";
     
-    public static void registrarCurso(Curso curso) {
+    public static void registrarAula(Aula aula) {
         // Verificar y crear el folder si no existe
         File directory = new File(DIRECTORY_NAME);
         if (!directory.exists()) {
@@ -22,8 +21,8 @@ public class Metodos_Curso {
         }
 
         // Escribir los datos en el archivo
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_CURSOS, true))) {
-            bw.write(curso.toString());
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_AULAS, true))) {
+            bw.write(aula.toString());
             bw.newLine();
             System.out.println("curso registrado exitosamente.");
         } catch (IOException e) {
@@ -31,10 +30,9 @@ public class Metodos_Curso {
         }
     }
     
-    
-       public static boolean modificarCursoPorCodigo(String codigo_curso, Curso nuevoCurso) {
-        File inputFile = new File(FILE_CURSOS);
-        File tempFile = new File(DIRECTORY_NAME + "/tempCursos.txt");
+    public static boolean modificarAulaPorCodigo(String numeroAula, Aula nuevaAula) {
+        File inputFile = new File(FILE_AULAS);
+        File tempFile = new File(DIRECTORY_NAME + "/tempAulas.txt");
 
         boolean encontrada = false;
 
@@ -44,8 +42,8 @@ public class Metodos_Curso {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos[0].equals(codigo_curso)) {
-                    bw.write(nuevoCurso.toString());
+                if (datos[0].equals(numeroAula)) {
+                    bw.write(nuevaAula.toString());
                     encontrada = true;
                 } else {
                     bw.write(linea);
@@ -71,4 +69,5 @@ public class Metodos_Curso {
 
         return encontrada;
     }
+    
 }

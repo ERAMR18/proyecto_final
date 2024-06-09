@@ -9,43 +9,43 @@ package clases;
  * @author ramir
  */
 public class Curso {
-    private String codigo_curso;
-    private String nombre_curso;
+    private String codigoCurso;
+    private String nombreCurso;
     private String semestre;
     
-    public Curso (String codigo_curso, String nombre_curso, String semestre){
-        this.codigo_curso = codigo_curso;
-        this.nombre_curso = nombre_curso;
+    public Curso (String codigoCurso, String nombreCurso, String semestre){
+        this.codigoCurso = codigoCurso;
+        this.nombreCurso = nombreCurso;
         this.semestre = semestre;
 
     }
 
     /**
-     * @return the codigo_curso
+     * @return the codigoCurso
      */
-    public String getCodigo_curso() {
-        return codigo_curso;
+    public String getCodigoCurso() {
+        return codigoCurso;
     }
 
     /**
-     * @param codigo_curso the codigo_curso to set
+     * @param codigoCurso the codigoCurso to set
      */
-    public void setCodigo_curso(String codigo_curso) {
-        this.codigo_curso = codigo_curso;
+    public void setCodigoCurso(String codigoCurso) {
+        this.codigoCurso = codigoCurso;
     }
 
     /**
-     * @return the nombre_curso
+     * @return the nombreCurso
      */
-    public String getNombre_curso() {
-        return nombre_curso;
+    public String getNombreCurso() {
+        return nombreCurso;
     }
 
     /**
-     * @param nombre_curso the nombre_curso to set
+     * @param nombreCurso the nombreCurso to set
      */
-    public void setNombre_curso(String nombre_curso) {
-        this.nombre_curso = nombre_curso;
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Curso {
     @Override
     
     public String toString(){
-    return this.codigo_curso+"," + this.nombre_curso+"," + this.semestre;
+    return this.codigoCurso+"," + this.nombreCurso+"," + this.semestre;
     }
 
        

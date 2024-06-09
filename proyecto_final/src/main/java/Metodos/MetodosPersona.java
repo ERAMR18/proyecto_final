@@ -9,7 +9,7 @@ import java.io.*;
  *
  * @author ramir
  */
-public class Metodos_Persona {
+public class MetodosPersona {
     private static final String DIRECTORY_NAME = "registros";
     private static final String FILE_PERSONAS = DIRECTORY_NAME + "/Personas.txt";
     

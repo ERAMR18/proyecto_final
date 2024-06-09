@@ -7,7 +7,7 @@ package com.mycompany.proyecto_final;
 import java.util.Scanner;
 import clases.Persona;
 import java.io.*;
-import Metodos.Metodos_Persona;
+import Metodos.MetodosPersona;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Proyecto_final {
                     Scanner entrada2 = new Scanner(System.in);
                     System.out.println("Ingrese el CUI: ");
                     String cui = entrada2.nextLine();
-                    Persona person = Metodos_Persona.buscarPersonaPorCUI(cui);
+                    Persona person = MetodosPersona.buscarPersonaPorCUI(cui);
                     if (person!=null ) {
                      person.showPerson();
                      break;
@@ -53,7 +53,7 @@ public class Proyecto_final {
                     Scanner entrada3 = new Scanner(System.in);
                     System.out.println("Ingrese el CUI a modificar: ");
                     String cuiMod = entrada3.nextLine();
-                    Persona personMod = Metodos_Persona.buscarPersonaPorCUI(cuiMod);
+                    Persona personMod = MetodosPersona.buscarPersonaPorCUI(cuiMod);
                     String nombre = null;
                     String apellido = null;
                     String numero_telefono = null;
@@ -85,7 +85,7 @@ public class Proyecto_final {
                                 System.out.println("Ingrese el numero de telefono a modificar: ");
                                 numero_telefono = entrada3.nextLine();
 
-                                while(!Metodos_Persona.validarNumeroCelular(numero_telefono)){
+                                while(!MetodosPersona.validarNumeroCelular(numero_telefono)){
                                     System.out.println("Numero de celular invalido solo se permiten digitos");
                                     System.out.println("Ingrese nuevamente el numero de celular: ");
                                     numero_telefono = entrada3.nextLine();
@@ -98,7 +98,7 @@ public class Proyecto_final {
                             System.out.println(numero_telefono);
 
                             Persona personaNueva = new Persona(cuiMod, nombre, apellido, numero_telefono);
-                            Metodos_Persona.modificarPersonaPorCUI(cuiMod, personaNueva); //String CUI, Persona nuevaPersona
+                            MetodosPersona.modificarPersonaPorCUI(cuiMod, personaNueva); //String CUI, Persona nuevaPersona
                      
                     } else {
                         System.out.println("Persona no encontrada");
@@ -125,14 +125,14 @@ public class Proyecto_final {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Ingrese el el cui: ");
         String cui = scanner.nextLine(); 
-        while (!Metodos_Persona.validarCUI(cui)) {
+        while (!MetodosPersona.validarCUI(cui)) {
                         System.out.println("CUI invalido. Debe contener exactamente 13 caracteres numericos.");
                         System.out.print("Ingrese CUI (13 dígitos): ");
                         cui = scanner.nextLine();
        
         }
         
-         Persona person = Metodos_Persona.buscarPersonaPorCUI(cui);
+         Persona person = MetodosPersona.buscarPersonaPorCUI(cui);
          if (person!= null) {
              System.out.println("Esta persona ya fue ingresada");
              person.showPerson();
@@ -145,7 +145,7 @@ public class Proyecto_final {
         System.out.println("Ingrese su numero celular: ");
         String numero_celular = scanner.nextLine();
         
-        while(!Metodos_Persona.validarNumeroCelular(numero_celular)){
+        while(!MetodosPersona.validarNumeroCelular(numero_celular)){
                 System.out.println("Numero de celular invalido solo se permiten digitos");
                 System.out.println("Ingrese nuevamente el numero de celular: ");
                 numero_celular = scanner.nextLine();
@@ -155,7 +155,7 @@ public class Proyecto_final {
         System.out.println("Persona ingresada: ");
         System.out.println(persona.toString());
         
-        Metodos_Persona.registrarPersona(persona);
+        MetodosPersona.registrarPersona(persona);
          }
         
         

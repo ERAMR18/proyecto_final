@@ -12,13 +12,13 @@ public class Persona {
     private String cui;
     private String nombre;
     private String apellidos;
-    private String numero_celular;
+    private String numeroCelular;
     
-    public Persona (String cui, String nombre, String apellidos, String numero_celular){
+    public Persona (String cui, String nombre, String apellidos, String numeroCelular){
         this.cui = cui;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.numero_celular = numero_celular;
+        this.numeroCelular = numeroCelular;
     }
 
     /**
@@ -64,28 +64,28 @@ public class Persona {
     }
 
     /**
-     * @return the numero_celular
+     * @return the numeroCelular
      */
-    public String getNumero_celular() {
-        return numero_celular;
+    public String getNumeroCelular() {
+        return numeroCelular;
     }
 
     /**
-     * @param numero_celular the numero_celular to set
+     * @param numeroCelular the numeroCelular to set
      */
-    public void setNumero_celular(String numero_celular) {
-        this.numero_celular = numero_celular;
+    public void setNumeroCelular(String numeroCelular) {
+        this.numeroCelular = numeroCelular;
     }
 @Override
      public String toString() {
-        return cui + "," + nombre + "," + apellidos + "," + numero_celular;
+        return cui + "," + nombre + "," + apellidos + "," + numeroCelular;
     }
      
      public void showPerson(){
          System.out.println("\t CUI: " + cui );
          System.out.println("\t Nombre: " + nombre );
          System.out.println("\t Apellidos: " + apellidos );
-         System.out.println("\t Numero de celular: " + numero_celular );
+         System.out.println("\t Numero de celular: " + numeroCelular );
      }
     
 }
