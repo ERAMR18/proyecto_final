@@ -61,6 +61,11 @@ public class Curso {
     public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
+    @Override
+    
+    public String toString(){
+    return this.codigo_curso+"," + this.nombre_curso+"," + this.semestre;
+    }
 
        
 }
