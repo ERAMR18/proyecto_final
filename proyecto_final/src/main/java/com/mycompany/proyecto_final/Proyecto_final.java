@@ -29,6 +29,9 @@ public class Proyecto_final {
             System.out.println("\t 1. Ingresar alumno");
             System.out.println("\t 2. Buscar alumno por CUI");
             System.out.println("\t 3. modificar alumno por CUI");
+            System.out.println("\t 4. Ingresar curso");
+            System.out.println("\t 5. Buscar curso por codigo de curso");
+            System.out.println("\t 6. Desplegar lilstado de cursos registrados");
             System.out.println("\t 11. Salir"); 
             
             try{ 
@@ -111,6 +114,18 @@ public class Proyecto_final {
                     
          
                     break;
+                    
+            case 4:{
+                System.out.println("Problema 2");
+                registrarCurso();
+                break;
+            }
+                
+            case 5:{
+                Scanner entradaCurso = new Scanner(System.in);
+                System.out.println("'Ingrese el codigo de curso para consulta'");
+                
+            }
 
                     
                 
@@ -172,10 +187,18 @@ public class Proyecto_final {
         Scanner scanner =new Scanner(System.in);
         System.out.println("Ingrese el codigo de curso");
         String codigoCurso = scanner.nextLine();
-        System.out.println("Ingrese el codigo de curso");
+        System.out.println("Ingrese el nombre de curso");
         String nombreCurso = scanner.nextLine();
         System.out.println("Ingrese el numero de semestre");
         String semestre = scanner.nextLine();
+      
+        
+         while (!MetodosCurso.validarCodigo(codigoCurso)) {
+                        System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
+                        System.out.print("Ingrese el codigo de curso (13 dígitos): ");
+                        codigoCurso= scanner.nextLine();
+       
+        }
         Curso curso = new Curso(codigoCurso, nombreCurso, semestre);
         
         MetodosCurso.registrarCurso(curso);
