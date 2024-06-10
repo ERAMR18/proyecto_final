@@ -1,0 +1,4 @@
+45,2,Ala este
+6,4,lolo
+2,7,asasa
+3,12,weerrt

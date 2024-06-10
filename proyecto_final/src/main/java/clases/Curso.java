@@ -12,6 +12,9 @@ public class Curso {
     private String codigoCurso;
     private String nombreCurso;
     private String semestre;
+
+    public Curso() {
+    }
     
     public Curso (String codigoCurso, String nombreCurso, String semestre){
         this.codigoCurso = codigoCurso;

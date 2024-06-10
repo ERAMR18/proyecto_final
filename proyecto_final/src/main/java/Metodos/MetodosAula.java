@@ -30,6 +30,22 @@ public class MetodosAula {
         }
     }
     
+    
+           public static void  buscarAulaPorCodigoMostrar(String AULA) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_AULAS))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                String campoBusqueda = datos[0] + " " + datos[1];
+                if (campoBusqueda.contains(AULA)) {
+                    System.out.println(campoBusqueda);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+    
     public static boolean modificarAulaPorCodigo(String numeroAula, Aula nuevaAula) {
         File inputFile = new File(FILE_AULAS);
         File tempFile = new File(DIRECTORY_NAME + "/tempAulas.txt");

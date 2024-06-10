@@ -34,8 +34,15 @@ public class Proyecto_final {
             System.out.println("\t 2. Buscar alumno por CUI");
             System.out.println("\t 3. modificar alumno por CUI");
             System.out.println("\t 4. Ingresar curso");
-            System.out.println("\t 5. Buscar curso por codigo de curso");
-            System.out.println("\t 6. Desplegar lilstado de cursos registrados");
+            System.out.println("\t 5. Buscar curso por codigo o por nombre del curso");
+            System.out.println("\t 6.Mostrar cursos registrados");
+            System.out.println("\t 7. Modificar Curso"); 
+            System.out.println("\t 8. Registrar Aula"); 
+            System.out.println("\t 9. Modificar Aulas"); 
+            System.out.println("\t 9. Consulta de aulas por numero de aula o mostrar las auias registradas"); 
+
+            
+
             System.out.println("\t 11. Salir");
 
             try {
@@ -136,10 +143,54 @@ public class Proyecto_final {
                    System.out.println("'Ingrese el codigo de curso para consulta'");
                    String CODIGO = entrada.next();
          
-                    MetodosCurso.buscarCursoPorCodigo(CODIGO);
-                    
+                    Curso curso =   MetodosCurso.buscarCursoPorCodigo(CODIGO);
+                    if (curso == null) {
+                        System.out.println("No se encontro el curso");
+                    }else{
+                    System.out.println("El codigo es para el curso");
+                    System.out.println("El nombre del curso es: " + curso.getNombreCurso());
+                    System.out.println("El codigo de curso es de:  " + curso.getCodigoCurso());
+                    System.out.println("El numero de semestre es de:  " + curso.getSemestre());
+                    }
+                  
                     //entradaCurso.close();
                     
+                    break;
+                }
+                
+                case 6: {
+                    System.out.println("ILos cursos ingresados con los siguientes: ");
+                    MetodosCurso.mostrarCursos();
+                    break;
+                }
+                
+                case 7:{
+                 //Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el codigo de curso que quiere actualizar");
+        String codigoCurso = entrada.next();
+        System.out.println("Ingrese el nuevo nombre del curso");
+        String nombreCurso = entrada.next();
+        System.out.println("Ingrese el nuevo numero de semestre");
+        String semestre = entrada.next();
+
+
+        while (!MetodosCurso.validarCodigo(codigoCurso)) {
+            System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
+            System.out.print("Ingrese el codigo de curso (13 dígitos): ");
+            codigoCurso = entrada.next();
+
+        }
+         Curso cursoMod = new Curso();
+         cursoMod.setCodigoCurso(codigoCurso);
+         cursoMod.setNombreCurso(nombreCurso);
+         cursoMod.setSemestre(semestre);
+        MetodosCurso.modificarCursoPorCodigo(codigoCurso, cursoMod);
+        break;
+                }
+                
+                case 8:{
+                    System.out.println("Registrar aula");
+                    registrarAula(entrada);
                     break;
                 }
 
@@ -223,14 +274,14 @@ public class Proyecto_final {
     }
 
 
-    public static void registrarAula() {
-        Scanner scanner = new Scanner(System.in);
+    public static void registrarAula(Scanner scanner) {
+        //Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el numero de aula");
-        String numeroAula = scanner.nextLine();
+        String numeroAula = scanner.next();
         System.out.println("Ingrese la ubicacion del aula");
-        String ubicacionAula = scanner.nextLine();
+        String ubicacionAula = scanner.next();
         System.out.println("ingrese la capacidad de escritorios");
-        String capacidadEscritorios = scanner.nextLine();
+        String capacidadEscritorios = scanner.next();
         Aula aula = new Aula();
 
         aula.setCapacidadEscritorios(capacidadEscritorios);
@@ -238,7 +289,7 @@ public class Proyecto_final {
         aula.setUbicacionAula(ubicacionAula);
 
         MetodosAula.registrarAula(aula);
-        scanner.close();
+        //scanner.close();
     }
 
 

@@ -79,7 +79,8 @@ public class MetodosCurso {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos[0].equals(CODIGO)) {
+                String campoBusqueda = datos[0] + " " + datos[1];
+                if (campoBusqueda.contains(CODIGO)) {
                     return new Curso(datos[0], datos[1], datos[2]);
                 }
             }
@@ -88,7 +89,22 @@ public class MetodosCurso {
         }
         return null; // Retorna null si no se encuentra la persona
     }
-       
+         
+         
+           public static void mostrarCursos() {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_CURSOS))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                String campoBusqueda = datos[0] + " " + datos[1];
+                System.out.println(campoBusqueda);
+                
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+                
        public static boolean validarCodigo(String codigoCurso){
                return codigoCurso.matches("\\d+");
 
