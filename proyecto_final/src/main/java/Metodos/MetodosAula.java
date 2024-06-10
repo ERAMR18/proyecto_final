@@ -36,10 +36,16 @@ public class MetodosAula {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                String campoBusqueda = datos[0] + " " + datos[1];
-                if (campoBusqueda.contains(AULA)) {
+                String campoBusqueda = datos[0] + " " + datos[1] + " " + datos[2];
+                if (AULA.length() == 0) {
                     System.out.println(campoBusqueda);
+                }else{
+                  if (campoBusqueda.contains(AULA)) {
+                    System.out.println(campoBusqueda);
+                    return;
                 }
+                }
+              
             }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());

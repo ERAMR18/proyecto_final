@@ -193,6 +193,19 @@ public class Proyecto_final {
                     registrarAula(entrada);
                     break;
                 }
+                
+                case 9: {
+                    System.out.println("Consulta de aula por numero de aula (.1) o mostrar registros (.2) ");
+                    String opcionConsulta = entrada.next();
+                    String numeroAula = "";
+                   
+                    if (opcionConsulta.equals("1")) {
+                        System.out.println("Ingrese el numero de aula");
+                        numeroAula = entrada.next();
+                    }
+                    MetodosAula.buscarAulaPorCodigoMostrar(numeroAula);
+                    break;
+                }
 
 
                 case 11:
