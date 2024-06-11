@@ -115,7 +115,7 @@ public class MetodosAsociacion {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                String campoBusqueda = datos[1] + " " + datos[2];
+                String campoBusqueda = datos[0] + " " + datos[1];
                 if (search.isEmpty()) {
                     System.out.println(campoBusqueda);
                 } else {

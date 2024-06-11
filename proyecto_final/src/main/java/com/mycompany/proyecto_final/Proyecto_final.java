@@ -4,6 +4,7 @@
 
 package com.mycompany.proyecto_final;
 
+import Metodos.MetodosAsociacion;
 import Metodos.MetodosAula;
 import Metodos.MetodosCurso;
 
@@ -14,6 +15,7 @@ import clases.Persona;
 import java.io.*;
 
 import Metodos.MetodosPersona;
+import clases.Asociacion;
 import clases.Aula;
 import clases.Curso;
 
@@ -40,11 +42,13 @@ public class Proyecto_final {
             System.out.println("\t 8. Registrar Aula"); 
             System.out.println("\t 9. Modificar Aulas"); 
             System.out.println("\t 10. Consulta de aulas por numero de aula o mostrar las auias registradas"); 
-            System.out.println("\t 11. ");
+            System.out.println("\t 11. Registre una persona/curso/aula");
+            System.out.println("\t 12. Mostrar asociaciones registradas");
+
 
             
 
-            System.out.println("\t 11. Salir");
+            System.out.println("\t 13. Salir");
 
             try {
                 //opcion = entrada.nextInt();
@@ -209,24 +213,56 @@ public class Proyecto_final {
                 }
 
                 case 10:{
-                    try (Scanner scanner = new Scanner(System.in)) {
+                    //Scanner scanner = new Scanner(System.in);
                         System.out.println("Ingrese el numero de aula: ");
-                        String numeroAula = scanner.next();
+                        String numeroAula = entrada.next();
                         Aula nuevaAula = new Aula();
                         System.out.println("ingrese la nueva ubicacion del aula");
-                        String ubicacionAula = scanner.next();
+                        String ubicacionAula = entrada.next();
                         nuevaAula.setUbicacionAula(ubicacionAula);
                         System.out.println("Ingrese la nueva capacidad de escritorios");
-                        String capacidadEscritorios = scanner.next();
+                        String capacidadEscritorios = entrada.next();
                         nuevaAula.setCapacidadEscritorios(capacidadEscritorios);
                         nuevaAula.setNumeroAula(numeroAula);
                         MetodosAula.modificarAulaPorCodigo(numeroAula, nuevaAula);
-                    }
+                        //entrada.close();
+                        break;
+                }
+
+                
+                case 11:{
+                    System.out.println("Ingrese un numero de cui");
+                    String dpi = entrada.next();
+                    System.out.println("Ingrese codigo de curso");
+                    String cursoCodigo = entrada.next();
+                    System.out.println("Ingrese un numero de aula");
+                    String aulaNum = entrada.next();
+                    System.out.println("Ingrese un fecha dd/MM/yyyy");
+                    String fecha = entrada.next();
+                    Asociacion asociacion = new Asociacion();
+                    asociacion.setCui(dpi);
+                    asociacion.setCodigoCurso(cursoCodigo);
+                    asociacion.setNumeroAula(aulaNum);
+                    asociacion.setFecha(fecha);
+                    MetodosAsociacion.asociar(asociacion);
                     break;
+                }
+                
+                case 12:{
+                    System.out.println("Consulta de aula por CUI o por codigo de curso (.1) o mostrar registros (.2) ");
+                   String opcionConsulta = entrada.next();
+                   String busqueda = "";
+
+                   if (opcionConsulta.equals("1")) {
+                       System.out.println("Ingrese el numero de CUI o Codigo de curso");
+                       busqueda = entrada.next();
+                   }
+                MetodosAsociacion.mostrarAula(busqueda);
+                break;
                 }
 
 
-                case 11:
+                case 13:
                     System.out.println("");
                     salida = 1;
                     break;

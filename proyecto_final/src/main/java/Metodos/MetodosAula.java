@@ -64,7 +64,7 @@ public class MetodosAula {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos[0].equals(numeroAula)) {
+                if (datos[1].equals(numeroAula)) {
                     bw.write(nuevaAula.toString());
                     encontrada = true;
                 } else {
