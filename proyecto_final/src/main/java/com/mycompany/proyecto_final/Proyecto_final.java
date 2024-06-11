@@ -39,7 +39,8 @@ public class Proyecto_final {
             System.out.println("\t 7. Modificar Curso"); 
             System.out.println("\t 8. Registrar Aula"); 
             System.out.println("\t 9. Modificar Aulas"); 
-            System.out.println("\t 9. Consulta de aulas por numero de aula o mostrar las auias registradas"); 
+            System.out.println("\t 10. Consulta de aulas por numero de aula o mostrar las auias registradas"); 
+            System.out.println("\t 11. ");
 
             
 
@@ -204,6 +205,23 @@ public class Proyecto_final {
                         numeroAula = entrada.next();
                     }
                     MetodosAula.buscarAulaPorCodigoMostrar(numeroAula);
+                    break;
+                }
+
+                case 10:{
+                    try (Scanner scanner = new Scanner(System.in)) {
+                        System.out.println("Ingrese el numero de aula: ");
+                        String numeroAula = scanner.next();
+                        Aula nuevaAula = new Aula();
+                        System.out.println("ingrese la nueva ubicacion del aula");
+                        String ubicacionAula = scanner.next();
+                        nuevaAula.setUbicacionAula(ubicacionAula);
+                        System.out.println("Ingrese la nueva capacidad de escritorios");
+                        String capacidadEscritorios = scanner.next();
+                        nuevaAula.setCapacidadEscritorios(capacidadEscritorios);
+                        nuevaAula.setNumeroAula(numeroAula);
+                        MetodosAula.modificarAulaPorCodigo(numeroAula, nuevaAula);
+                    }
                     break;
                 }
 
