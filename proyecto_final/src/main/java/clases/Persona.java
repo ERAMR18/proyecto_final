@@ -9,12 +9,13 @@ package clases;
  * @author ramir
  */
 public class Persona {
+
     private String cui;
     private String nombre;
     private String apellidos;
     private String numeroCelular;
-    
-    public Persona (String cui, String nombre, String apellidos, String numeroCelular){
+
+    public Persona(String cui, String nombre, String apellidos, String numeroCelular) {
         this.cui = cui;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -76,16 +77,17 @@ public class Persona {
     public void setNumeroCelular(String numeroCelular) {
         this.numeroCelular = numeroCelular;
     }
-@Override
-     public String toString() {
+
+    @Override
+    public String toString() {
         return cui + "," + nombre + "," + apellidos + "," + numeroCelular;
     }
-     
-     public void showPerson(){
-         System.out.println("\t CUI: " + cui );
-         System.out.println("\t Nombre: " + nombre );
-         System.out.println("\t Apellidos: " + apellidos );
-         System.out.println("\t Numero de celular: " + numeroCelular );
-     }
-    
+
+    public void showPerson() {
+        System.out.println("\t CUI: " + cui);
+        System.out.println("\t Nombre: " + nombre);
+        System.out.println("\t Apellidos: " + apellidos);
+        System.out.println("\t Numero de celular: " + numeroCelular);
+    }
+
 }

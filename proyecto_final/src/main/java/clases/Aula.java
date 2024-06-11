@@ -9,13 +9,13 @@ package clases;
  * @author ramir
  */
 public class Aula {
+
     private String numeroAula;
     private String ubicacionAula;
     private String capacidadEscritorios;
 
     public Aula() {
     }
-    
 
     public Aula(String numeroAula, String ubicacionAula, String capacidadEscritorios) {
         this.numeroAula = numeroAula;
@@ -46,17 +46,11 @@ public class Aula {
     public void setCapacidadEscritorios(String capacidadEscritorios) {
         this.capacidadEscritorios = capacidadEscritorios;
     }
-    
 
     @Override
-    
-    public String toString(){
-    return this.capacidadEscritorios+ "," + this.numeroAula+ "," + this.ubicacionAula;
-    }
-    
-    
-    
 
-    
-    
+    public String toString() {
+        return this.capacidadEscritorios + "," + this.numeroAula + "," + this.ubicacionAula;
+    }
+
 }

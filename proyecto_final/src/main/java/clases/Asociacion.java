@@ -1,6 +1,7 @@
 package clases;
 
 public class Asociacion {
+
     private String cui;
     private String codigoCurso;
     private String numeroAula;

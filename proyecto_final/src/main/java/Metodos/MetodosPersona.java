@@ -3,16 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Metodos;
+
 import clases.Persona;
 import java.io.*;
+
 /**
  *
  * @author ramir
  */
 public class MetodosPersona {
+
     private static final String DIRECTORY_NAME = "registros";
     private static final String FILE_PERSONAS = DIRECTORY_NAME + "/Personas.txt";
-    
+
     public static void registrarPersona(Persona persona) {
         // Verificar y crear el folder si no existe
         File directory = new File(DIRECTORY_NAME);
@@ -29,7 +32,7 @@ public class MetodosPersona {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-    
+
     public static Persona buscarPersonaPorCUI(String CUI) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PERSONAS))) {
             String linea;
@@ -44,15 +47,14 @@ public class MetodosPersona {
         }
         return null; // Retorna null si no se encuentra la persona
     }
-    
+
     public static boolean modificarPersonaPorCUI(String CUI, Persona nuevaPersona) {
         File inputFile = new File(FILE_PERSONAS);
         File tempFile = new File(DIRECTORY_NAME + "/tempPersonas.txt");
 
         boolean encontrada = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFile)); BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile))) {
 
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -84,8 +86,7 @@ public class MetodosPersona {
 
         return encontrada;
     }
-    
-    
+
     public static boolean validarCUI(String CUI) {
         return CUI.matches("\\d{13}");
     }
@@ -93,7 +94,7 @@ public class MetodosPersona {
     public static boolean validarNumeroCelular(String numeroCelular) {
         return numeroCelular.matches("\\d+");
     }
-    
+
     public static boolean esCUIUnico(String CUI) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PERSONAS))) {
             String linea;
@@ -108,5 +109,5 @@ public class MetodosPersona {
         }
         return true;
     }
-    
+
 }

@@ -3,16 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Metodos;
+
 import java.io.*;
 import clases.Aula;
+
 /**
  *
  * @author ramir
  */
 public class MetodosAula {
+
     private static final String DIRECTORY_NAME = "registros";
-    private static final String FILE_AULAS= DIRECTORY_NAME + "/Aulas.txt";
-    
+    private static final String FILE_AULAS = DIRECTORY_NAME + "/Aulas.txt";
+
     public static void registrarAula(Aula aula) {
         // Verificar y crear el folder si no existe
         File directory = new File(DIRECTORY_NAME);
@@ -29,9 +32,8 @@ public class MetodosAula {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
-    
-    
-           public static void  buscarAulaPorCodigoMostrar(String AULA) {
+
+    public static void buscarAulaPorCodigoMostrar(String AULA) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_AULAS))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -39,27 +41,26 @@ public class MetodosAula {
                 String campoBusqueda = datos[0] + " " + datos[1] + " " + datos[2];
                 if (AULA.length() == 0) {
                     System.out.println(campoBusqueda);
-                }else{
-                  if (campoBusqueda.contains(AULA)) {
-                    System.out.println(campoBusqueda);
-                    return;
+                } else {
+                    if (campoBusqueda.contains(AULA)) {
+                        System.out.println(campoBusqueda);
+                        return;
+                    }
                 }
-                }
-              
+
             }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    
+
     public static boolean modificarAulaPorCodigo(String numeroAula, Aula nuevaAula) {
         File inputFile = new File(FILE_AULAS);
         File tempFile = new File(DIRECTORY_NAME + "/tempAulas.txt");
 
         boolean encontrada = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFile)); BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile))) {
 
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -91,5 +92,5 @@ public class MetodosAula {
 
         return encontrada;
     }
-    
+
 }

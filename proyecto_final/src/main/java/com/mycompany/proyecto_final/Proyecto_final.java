@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.mycompany.proyecto_final;
 
 import Metodos.MetodosAsociacion;
@@ -38,15 +37,12 @@ public class Proyecto_final {
             System.out.println("\t 4. Ingresar curso");
             System.out.println("\t 5. Buscar curso por codigo o por nombre del curso");
             System.out.println("\t 6.Mostrar cursos registrados");
-            System.out.println("\t 7. Modificar Curso"); 
-            System.out.println("\t 8. Registrar Aula"); 
-            System.out.println("\t 9. Modificar Aulas"); 
-            System.out.println("\t 10. Consulta de aulas por numero de aula o mostrar las auias registradas"); 
+            System.out.println("\t 7. Modificar Curso");
+            System.out.println("\t 8. Registrar Aula");
+            System.out.println("\t 9. Modificar Aulas");
+            System.out.println("\t 10. Consulta de aulas por numero de aula o mostrar las auias registradas");
             System.out.println("\t 11. Registre una persona/curso/aula");
             System.out.println("\t 12. Mostrar asociaciones registradas");
-
-
-            
 
             System.out.println("\t 13. Salir");
 
@@ -55,7 +51,6 @@ public class Proyecto_final {
                 //entrada.nextLine();
                 opcion = Integer.parseInt(entrada.next());
                 System.out.println("Nmero introducido: " + opcion);
-
 
             } catch (Exception e) {
                 System.out.println("Error:" + e);
@@ -133,7 +128,6 @@ public class Proyecto_final {
 
                     }
 
-
                     break;
 
                 case 4: {
@@ -143,67 +137,65 @@ public class Proyecto_final {
                 }
 
                 case 5: {
-                   //Scanner entradaCurso = new Scanner(System.in);
-                   
-                   System.out.println("'Ingrese el codigo de curso para consulta'");
-                   String CODIGO = entrada.next();
-         
-                    Curso curso =   MetodosCurso.buscarCursoPorCodigo(CODIGO);
+                    //Scanner entradaCurso = new Scanner(System.in);
+
+                    System.out.println("'Ingrese el codigo de curso para consulta'");
+                    String CODIGO = entrada.next();
+
+                    Curso curso = MetodosCurso.buscarCursoPorCodigo(CODIGO);
                     if (curso == null) {
                         System.out.println("No se encontro el curso");
-                    }else{
-                    System.out.println("El codigo es para el curso");
-                    System.out.println("El nombre del curso es: " + curso.getNombreCurso());
-                    System.out.println("El codigo de curso es de:  " + curso.getCodigoCurso());
-                    System.out.println("El numero de semestre es de:  " + curso.getSemestre());
+                    } else {
+                        System.out.println("El codigo es para el curso");
+                        System.out.println("El nombre del curso es: " + curso.getNombreCurso());
+                        System.out.println("El codigo de curso es de:  " + curso.getCodigoCurso());
+                        System.out.println("El numero de semestre es de:  " + curso.getSemestre());
                     }
-                  
+
                     //entradaCurso.close();
-                    
                     break;
                 }
-                
+
                 case 6: {
                     System.out.println("ILos cursos ingresados con los siguientes: ");
                     MetodosCurso.mostrarCursos();
                     break;
                 }
-                
-                case 7:{
-                 //Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el codigo de curso que quiere actualizar");
-        String codigoCurso = entrada.next();
-        System.out.println("Ingrese el nuevo nombre del curso");
-        String nombreCurso = entrada.next();
-        System.out.println("Ingrese el nuevo numero de semestre");
-        String semestre = entrada.next();
 
+                case 7: {
+                    //Scanner scanner = new Scanner(System.in);
+                    System.out.println("Ingrese el codigo de curso que quiere actualizar");
+                    String codigoCurso = entrada.next();
+                    System.out.println("Ingrese el nuevo nombre del curso");
+                    String nombreCurso = entrada.next();
+                    System.out.println("Ingrese el nuevo numero de semestre");
+                    String semestre = entrada.next();
 
-        while (!MetodosCurso.validarCodigo(codigoCurso)) {
-            System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
-            System.out.print("Ingrese el codigo de curso (13 dígitos): ");
-            codigoCurso = entrada.next();
+                    while (!MetodosCurso.validarCodigo(codigoCurso)) {
+                        System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
+                        System.out.print("Ingrese el codigo de curso (13 dígitos): ");
+                        codigoCurso = entrada.next();
 
-        }
-         Curso cursoMod = new Curso();
-         cursoMod.setCodigoCurso(codigoCurso);
-         cursoMod.setNombreCurso(nombreCurso);
-         cursoMod.setSemestre(semestre);
-        MetodosCurso.modificarCursoPorCodigo(codigoCurso, cursoMod);
-        break;
+                    }
+                    Curso cursoMod = new Curso();
+                    cursoMod.setCodigoCurso(codigoCurso);
+                    cursoMod.setNombreCurso(nombreCurso);
+                    cursoMod.setSemestre(semestre);
+                    MetodosCurso.modificarCursoPorCodigo(codigoCurso, cursoMod);
+                    break;
                 }
-                
-                case 8:{
+
+                case 8: {
                     System.out.println("Registrar aula");
                     registrarAula(entrada);
                     break;
                 }
-                
+
                 case 9: {
                     System.out.println("Consulta de aula por numero de aula (.1) o mostrar registros (.2) ");
                     String opcionConsulta = entrada.next();
                     String numeroAula = "";
-                   
+
                     if (opcionConsulta.equals("1")) {
                         System.out.println("Ingrese el numero de aula");
                         numeroAula = entrada.next();
@@ -212,25 +204,24 @@ public class Proyecto_final {
                     break;
                 }
 
-                case 10:{
+                case 10: {
                     //Scanner scanner = new Scanner(System.in);
-                        System.out.println("Ingrese el numero de aula: ");
-                        String numeroAula = entrada.next();
-                        Aula nuevaAula = new Aula();
-                        System.out.println("ingrese la nueva ubicacion del aula");
-                        String ubicacionAula = entrada.next();
-                        nuevaAula.setUbicacionAula(ubicacionAula);
-                        System.out.println("Ingrese la nueva capacidad de escritorios");
-                        String capacidadEscritorios = entrada.next();
-                        nuevaAula.setCapacidadEscritorios(capacidadEscritorios);
-                        nuevaAula.setNumeroAula(numeroAula);
-                        MetodosAula.modificarAulaPorCodigo(numeroAula, nuevaAula);
-                        //entrada.close();
-                        break;
+                    System.out.println("Ingrese el numero de aula: ");
+                    String numeroAula = entrada.next();
+                    Aula nuevaAula = new Aula();
+                    System.out.println("ingrese la nueva ubicacion del aula");
+                    String ubicacionAula = entrada.next();
+                    nuevaAula.setUbicacionAula(ubicacionAula);
+                    System.out.println("Ingrese la nueva capacidad de escritorios");
+                    String capacidadEscritorios = entrada.next();
+                    nuevaAula.setCapacidadEscritorios(capacidadEscritorios);
+                    nuevaAula.setNumeroAula(numeroAula);
+                    MetodosAula.modificarAulaPorCodigo(numeroAula, nuevaAula);
+                    //entrada.close();
+                    break;
                 }
 
-                
-                case 11:{
+                case 11: {
                     System.out.println("Ingrese un numero de cui");
                     String dpi = entrada.next();
                     System.out.println("Ingrese codigo de curso");
@@ -247,20 +238,19 @@ public class Proyecto_final {
                     MetodosAsociacion.asociar(asociacion);
                     break;
                 }
-                
-                case 12:{
+
+                case 12: {
                     System.out.println("Consulta de aula por CUI o por codigo de curso (.1) o mostrar registros (.2) ");
-                   String opcionConsulta = entrada.next();
-                   String busqueda = "";
+                    String opcionConsulta = entrada.next();
+                    String busqueda = "";
 
-                   if (opcionConsulta.equals("1")) {
-                       System.out.println("Ingrese el numero de CUI o Codigo de curso");
-                       busqueda = entrada.next();
-                   }
-                MetodosAsociacion.mostrarAula(busqueda);
-                break;
+                    if (opcionConsulta.equals("1")) {
+                        System.out.println("Ingrese el numero de CUI o Codigo de curso");
+                        busqueda = entrada.next();
+                    }
+                    MetodosAsociacion.mostrarAula(busqueda);
+                    break;
                 }
-
 
                 case 13:
                     System.out.println("");
@@ -269,7 +259,6 @@ public class Proyecto_final {
                 default:
                     System.out.println("error");
                     break;
-
 
             }
         } while (salida != 1);
@@ -313,9 +302,7 @@ public class Proyecto_final {
             MetodosPersona.registrarPersona(persona);
         }
 
-
     }
-
 
     public static void registrarCurso() {
         Scanner scanner = new Scanner(System.in);
@@ -325,7 +312,6 @@ public class Proyecto_final {
         String nombreCurso = scanner.nextLine();
         System.out.println("Ingrese el numero de semestre");
         String semestre = scanner.nextLine();
-
 
         while (!MetodosCurso.validarCodigo(codigoCurso)) {
             System.out.println("Codigo de curso invalida. Debe contener unicamente valores numericos.");
@@ -339,7 +325,6 @@ public class Proyecto_final {
         //scanner.close();
 
     }
-
 
     public static void registrarAula(Scanner scanner) {
         //Scanner scanner = new Scanner(System.in);
@@ -358,6 +343,5 @@ public class Proyecto_final {
         MetodosAula.registrarAula(aula);
         //scanner.close();
     }
-
 
 }

@@ -9,14 +9,15 @@ package clases;
  * @author ramir
  */
 public class Curso {
+
     private String codigoCurso;
     private String nombreCurso;
     private String semestre;
 
     public Curso() {
     }
-    
-    public Curso (String codigoCurso, String nombreCurso, String semestre){
+
+    public Curso(String codigoCurso, String nombreCurso, String semestre) {
         this.codigoCurso = codigoCurso;
         this.nombreCurso = nombreCurso;
         this.semestre = semestre;
@@ -64,11 +65,11 @@ public class Curso {
     public void setSemestre(String semestre) {
         this.semestre = semestre;
     }
+
     @Override
-    
-    public String toString(){
-    return this.codigoCurso+"," + this.nombreCurso+"," + this.semestre;
+
+    public String toString() {
+        return this.codigoCurso + "," + this.nombreCurso + "," + this.semestre;
     }
 
-       
 }

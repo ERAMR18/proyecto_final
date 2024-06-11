@@ -9,9 +9,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class MetodosAsociacion {
+
     private static final String DIRECTORY_NAME = "registros";
-    private static final String FILE_ASOCIACION= DIRECTORY_NAME + "/“registrocursos.txt";
-    private static final String FILE_AULAS= DIRECTORY_NAME + "/Aulas.txt";
+    private static final String FILE_ASOCIACION = DIRECTORY_NAME + "/“registrocursos.txt";
+    private static final String FILE_AULAS = DIRECTORY_NAME + "/Aulas.txt";
     private static final String FILE_CURSOS = DIRECTORY_NAME + "/Cursos.txt";
     private static final String FILE_PERSONAS = DIRECTORY_NAME + "/Personas.txt";
 
@@ -93,7 +94,7 @@ public class MetodosAsociacion {
         return Boolean.FALSE; // Retorna null si no se encuentra la persona
     }
 
-    public static Boolean  buscarAulaPorCodigoMostrar(String AULA) {
+    public static Boolean buscarAulaPorCodigoMostrar(String AULA) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_AULAS))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -110,7 +111,7 @@ public class MetodosAsociacion {
         return Boolean.FALSE;
     }
 
-    public static void  mostrarAula(String search) {
+    public static void mostrarAula(String search) {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_ASOCIACION))) {
             String linea;
             while ((linea = br.readLine()) != null) {
