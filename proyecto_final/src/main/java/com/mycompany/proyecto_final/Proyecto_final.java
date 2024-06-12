@@ -39,8 +39,8 @@ public class Proyecto_final {
             System.out.println("\t 6.Mostrar cursos registrados");
             System.out.println("\t 7. Modificar Curso");
             System.out.println("\t 8. Registrar Aula");
-            System.out.println("\t 9. Modificar Aulas");
-            System.out.println("\t 10. Consulta de aulas por numero de aula o mostrar las auias registradas");
+            System.out.println("\t 9. Consulta de aulas por numero de aula o mostrar las auias registradas");
+            System.out.println("\t 10. Modificar aulas");
             System.out.println("\t 11. Registre una persona/curso/aula");
             System.out.println("\t 12. Mostrar asociaciones registradas");
 

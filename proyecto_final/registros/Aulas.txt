@@ -1,4 +1,6 @@
-23,2,qwqwqw
+45,2,Este
 6,4,lolo
-23,2,qwqwqw
+45,2,Este
 3,12,weerrt
+noreste,1,ala
+12,4,6
